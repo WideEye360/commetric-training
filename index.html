@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commetric Learning — Freelancer Training</title>
+<style>
+.course-content {
+  margin: 12px 0 20px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.course-content h3 {
+  margin: 24px 0 12px;
+  color: var(--navy);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.course-content h3:first-child {
+  margin-top: 0;
+}
+
+.course-content ul {
+  padding-left: 22px;
+  margin: 0 0 24px;
+}
+
+.course-content li {
+  padding: 4px 0;
+}
+
+@media (max-width: 720px) {
+  .course-content {
+    padding: 16px;
+  }
+}
+:root{--navy:#17375e;--blue:#245b91;--pale:#edf4fb;--line:#d9e5f2;--ink:#183153;--muted:#667a92;--bg:#f5f8fc;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+.topbar{height:64px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;box-shadow:0 2px 10px #142d4a20}
+.brand{font-size:19px;font-weight:750;letter-spacing:-.3px}.topnav{display:flex;gap:24px;align-items:center;font-size:14px}.topnav a{color:#e7eef8;text-decoration:none;padding:23px 0;border-bottom:3px solid transparent}.topnav a.active{border-color:#7dc4f4;color:#fff}.avatar{width:32px;height:32px;border-radius:50%;background:#dce8f5;color:var(--navy);display:grid;place-items:center;font-weight:700}
+.shell{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 64px)}
+.sidebar{padding:24px 14px;border-right:1px solid var(--line);background:#f8fbff}.side-link{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:7px;color:#38516f;text-decoration:none;font-size:14px;margin-bottom:5px}.side-link.active,.side-link:hover{background:#e4eefb;color:#123d70}.side-link .ico{width:20px;text-align:center;font-size:17px}
+main{max-width:1150px;width:100%;padding:34px clamp(20px,4vw,52px);margin:0 auto}.hero{display:flex;gap:18px;align-items:center;margin-bottom:28px}.hero-icon{font-size:35px;color:var(--blue);background:#e5effb;border-radius:12px;width:64px;height:64px;display:grid;place-items:center;flex-shrink:0}.hero h1{font-size:25px;letter-spacing:-.6px;margin:0 0 6px}.hero p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.toolbar{display:flex;gap:12px;align-items:center;margin:0 0 17px}.search{flex:1;position:relative}.search input{width:100%;border:1px solid var(--line);border-radius:9px;padding:12px 14px 12px 40px;font:inherit;background:white;color:var(--ink);outline:none}.search input:focus{border-color:#6a9dce;box-shadow:0 0 0 3px #dbeaf9}.search span{position:absolute;left:14px;top:11px;color:#7890aa}.btn{border:1px solid var(--line);border-radius:8px;padding:11px 13px;background:white;color:var(--ink);font-weight:600;cursor:pointer}.btn:hover{background:var(--pale)}
+.course-list{display:grid;gap:10px}.section{border:1px solid var(--line);border-radius:9px;background:#fff;overflow:hidden;box-shadow:0 1px 2px #17375e05}.section summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f2f6fb;font-weight:680;font-size:14px;min-height:49px}.section summary::-webkit-details-marker{display:none}.chev{width:18px;color:#244e7b;transition:transform .18s;flex-shrink:0}.section[open] .chev{transform:rotate(90deg)}.section summary:hover{background:#eaf2fb}.count{margin-left:auto;color:#7388a0;font-weight:500;font-size:12px}.resources{padding:5px 15px 9px 47px}.resource{display:flex;align-items:center;gap:12px;padding:10px 4px;color:#234568;text-decoration:none;font-size:14px;border-radius:6px}.resource:hover{background:#f3f7fc}.file-icon{width:25px;height:29px;border-radius:4px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;background:#cb4651;flex-shrink:0}.file-icon.doc{background:#2879c7}.file-icon.link{background:#7656b7}.resource-title{flex:1}.open-label{font-size:12px;color:#7a8da4;opacity:0}.resource:hover .open-label{opacity:1}.empty{padding:10px 4px 13px;color:#7c8da1;font-size:13px}.footer{padding:24px 0 8px;color:#8796a8;font-size:12px;text-align:center}
+.notice{display:none;margin:0 0 15px;padding:12px 14px;border-radius:8px;background:#e7f3ea;color:#275c39;font-size:13px}.notice.show{display:block}
+@media(max-width:720px){.topbar{padding:0 16px;height:58px}.topnav{gap:14px}.topnav a:first-child{display:none}.shell{grid-template-columns:1fr}.sidebar{display:flex;gap:4px;overflow-x:auto;padding:8px;border-right:0;border-bottom:1px solid var(--line)}.side-link{white-space:nowrap;margin:0;padding:9px 11px}.side-link:not(.active){display:none}main{padding:25px 15px}.hero h1{font-size:21px}.hero-icon{width:54px;height:54px;font-size:29px}.toolbar{flex-wrap:wrap}.search{flex-basis:100%}.resources{padding-left:25px}.section summary{padding:13px 12px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Commetric Learning</div>
+  <nav class="topnav" aria-label="Main navigation"><a class="active" href="#home">Home</a><a href="#courses" onclick="document.getElementById('courseSearch').focus();return false">My courses</a></nav>
+  <div class="avatar" title="Learner profile">L</div>
+</header>
+<div class="shell" id="home">
+  <aside class="sidebar" aria-label="Course navigation">
+    <a class="side-link active" href="#course-top"><span class="ico">⌂</span>Course home</a>
+    
+ 
+    <a class="side-link" href="#course-top" onclick="showNotice('Commetric Freelancer Training — course resources and onboarding materials.');return false"><span class="ico">ⓘ</span>Course information</a>
+  </aside>
+  <main id="course-top">
+    <div class="hero">
+      <div class="hero-icon" aria-hidden="true">🎓</div>
+      <div><h1>Commetric Freelancer Training</h1><p>Welcome to your training course. Here you'll find the resources and guidance you need.</p></div>
+    </div>
+    <div class="notice" id="notice" role="status"></div>
+    <div class="toolbar" id="courses">
+      <label class="search"><span>⌕</span><input id="courseSearch" type="search" placeholder="Search sections and resources…" aria-label="Search course sections and resources"></label>
+      <button class="btn" id="expandBtn" type="button">Expand all</button>
+    </div>
+    <div class="course-list" id="courseList">
+           <details class="section" open>
+        <summary><span class="chev">›</span><span>Freelancers at Commetric</span><span class="count">2 resources</span></summary>
+<div class="course-content">
+
+  <h3>WHAT DOES A FREELANCE MEDIA ANALYST DO?</h3>
+  <ul>
+    <li>Using the tools provided, delivers daily, weekly, or monthly monitoring alerts or analysis reports on the media response to a client’s brand or product.</li>
+    <li>May also deliver specific ad-hoc requests, media analysis projects or INA.</li>
+    <li>Reports to a Project Manager.</li>
+    <li>Using the Commetric methodology, reviews and analyses media coverage.</li>
+    <li>Responsible for completing all project tasks/requirements as assigned by the Project Manager within the assigned timeframe – articles coding, exporting data, graphing, text, PPT compilation, etc.</li>
+    <li>Responsible for adhering to the client’s brief and requirements for the project.</li>
+    <li>Responsible for meeting all quality standards when completing tasks.</li>
+    <li>Responsible for correcting own mistakes.</li>
+    <li>Maintaining above average understanding of Cogent, Excel, and PPT as needed.</li>
+    <li>Responsible for meeting the required quality standards.</li>
+  </ul>
+
+  <h3>WHAT IS A FREELANCE MEDIA ANALYST GOOD AT?</h3>
+  <ul>
+    <li>Handling and honoring the freedom that they are given.</li>
+    <li>Managing their own time.</li>
+    <li>Adjusting priorities when necessary.</li>
+    <li>Ensuring that their work meets customer objectives.</li>
+    <li>Ensuring that their work follows and is in accordance with the project management plan.</li>
+    <li>Ensuring that their work is delivered always on time.</li>
+  </ul>
+
+  <h3>WHAT IS EXPECTED FROM A FREELANCE MEDIA ANALYST?</h3>
+  <ul>
+    <li>To be able to work independently on a newsletter without shadowing/supervision within 2 weeks of intensely working on a newsletter project.</li>
+    <li>To use comfortably the Signal, Onalytica, or other platforms as required for the project within 1 week of intensely working on a newsletter project.</li>
+    <li>To learn from mistakes. The PM and the project team will support the new colleague in any way possible; constant feedback will be provided. If feedback is delayed, the new colleague should ask for it. The new colleague is responsible for implementing the given feedback and making sure the same mistakes do not appear again.</li>
+    <li>To fill in the timesheet reporting module in Aladdin on a daily basis. Accurate reporting is vital. If unsure about how to report your hours, please consult with the PM on the project.</li>
+  </ul>
+
+</div>
+        <div class="resources">
+          <a class="resource" href="./Freelancers%20handbook%202026.docx" data-resource="Freelancers handbook 2026" data-kind="doc"><span class="file-icon doc">DOC</span><span class="resource-title">Freelancers handbook 2026</span><span class="open-label">Open ↗</span></a>
+          <a class="resource" href="./Freelancer%20network%20induction%202026.pptx" data-resource="Freelancer network induction 2026" data-kind="ppt"><span class="file-icon" style="background:#d87535">PPT</span><span class="resource-title">Freelancer network induction 2026</span><span class="open-label">Open ↗</span></a>
+        </div>
+      </details>
+      <details class="section">
+        <summary><span class="chev">›</span><span>HR-Related Q&amp;A</span><span class="count">0 resources</span></summary>
+
+<div class="course-content">
+
+  <h2>How to Report Your Hours in Aladdin</h2>
+
+  <p>
+    All freelancers are required to report their working hours in Aladdin
+    on a daily basis. Follow the steps below to make sure your timesheet
+    is submitted correctly.
+  </p>
+
+  <div class="guide-step">
+    <h3>Step 1. Log in to Aladdin</h3>
+    <p>
+      Log in using the credentials provided to you by HR.
+    </p>
+    <p>
+      <a href="https://aladdin.commetric.com/" target="_blank"
+         rel="noopener noreferrer" class="guide-link">
+        Open Aladdin ↗
+      </a>
+    </p>
+
+    <!-- Optional screenshot: Aladdin login page -->
+    <figure class="guide-image">
+      <img src="images/aladdin-login.png"
+           alt="Aladdin login page"
+           loading="lazy">
+      <figcaption>Aladdin login page</figcaption>
+    </figure>
+  </div>
+
+  <div class="guide-step">
+    <h3>Step 2. Create a timesheet entry</h3>
+    <p>
+      Go to <strong>My Timesheets</strong> and click the green
+      <strong>Create</strong> button.
+    </p>
+
+    <!-- Optional screenshot: My Timesheets and Create button -->
+    <figure class="guide-image">
+      <img src="hr3.jpg"
+           alt="My Timesheets page showing the Create button"
+           loading="lazy">
+      <figcaption>My Timesheets — Create a new entry</figcaption>
+    </figure>
+  </div>
+
+  <div class="guide-step">
+    <h3>Step 3. Enter the details</h3>
+    <p>
+      Indicate the date and the project. You will also be able to select
+      a rate. Choose the appropriate option:
+    </p>
+
+<img
+  src="hr2.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+    <ul>
+      <li><strong>TEST</strong> — for training hours.</li>
+      <li><strong>Hour Freelancer</strong> — for regular work.</li>
+    </ul>
+
+    <!-- Optional screenshot: Date, project and rate fields -->
+    <figure class="guide-image">
+      <img src="hr 2.jpg"
+           alt="Aladdin timesheet entry showing the date, project and rate fields"
+           loading="lazy">
+      <figcaption>Enter the date, project and correct rate</figcaption>
+    </figure>
+  </div>
+
+  <div class="guide-step">
+    <h3>Step 4. Report your hours daily</h3>
+    <p>
+      Enter your hours at the end of each day.
+    </p>
+    <p>
+      Once the entry has been finalised, your Project Manager (PM) will
+      be notified. They will review and approve it before the end of the
+      month so that the Finance Department can proceed with payment.
+    </p>
+  </div>
+
+  <div class="guide-callout">
+    <strong>Important reminder</strong>
+    <p>
+      Report your hours daily and make sure all hours for the month have
+      been entered in Aladdin by the first day of the following month.
+    </p>
+  </div>
+
+  <hr>
+
+  <h2>Deadlines, Availability &amp; Payments</h2>
+
+  <div class="guide-topic">
+    <h3>Deadlines</h3>
+    <p>
+      Freelance projects have set deadlines. These may include daily
+      deadlines, weekends and official bank holidays.
+    </p>
+    <p>
+      Your Project Manager will explain the requirements and timeframe
+      for the project you will be working on.
+    </p>
+  </div>
+
+  <div class="guide-topic">
+    <h3>Availability</h3>
+    <p>
+      If you cannot deliver on a project for a particular day or period,
+      discuss this with your PM in advance. This gives them enough time
+      to find a replacement.
+    </p>
+    <p>
+      This applies to deadlines on regular working days, weekends and
+      official bank holidays.
+    </p>
+    <p>
+      If an unexpected event prevents you from doing the work, inform
+      your PM immediately.
+    </p>
+  </div>
+
+  <div class="guide-topic">
+    <h3>Payments</h3>
+    <p>
+      You will receive your payment by the <strong>10th day of the
+      following month</strong>.
+    </p>
+    <p>Before then, please make sure that:</p>
+    <ul>
+      <li>All newsletters and reports have been delivered on time.</li>
+      <li>All your hours have been reported in Aladdin by the first day
+          of the new month.</li>
+    </ul>
+  </div>
+
+  <div class="guide-contact">
+    <h3>Questions or concerns?</h3>
+    <p>
+      For project-related questions, please contact your Project Manager.
+      You can also reach out to:
+    </p>
+    <p><strong>Emilia Klayn</strong><br>
+      Project Manager
+    </p>
+    <p>
+      <a href="tel:+359888393423">+359 888 393 423</a><br>
+      <a href="mailto:emilia.klayn@commetric.com">
+        emilia.klayn@commetric.com
+      </a>
+    </p>
+  </div>
+
+</div>
+
+        <div class="resources"><div class="empty">Resources will appear here when added.</div></div>
+      </details>
+      <details class="section" open>
+        <summary><span class="chev">›</span><span>Cogent basics</span><span class="count">2 resources</span></summary>
+        <div class="resources">
+<div class="course-content">
+
+  <h2>What Is Cogent, How Does It Work, and How Does It Benefit Our Work?</h2>
+
+  <p>
+    Have a look at <strong>Radina Ivanova's tutorial</strong> to learn
+    how to start using Cogent.
+  </p>
+
+  <!-- Embedded YouTube video -->
+  <div style="margin: 24px 0; max-width: 800px;">
+    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+      <iframe
+        src="https://www.youtube.com/embed/zBNqE8h8HRU?start=7"
+        title="Cogent basics - YouTube"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <h3>Table of Contents</h3>
+
+  <ul>
+    <li><a href="#what-is-cogent">What is Cogent?</a></li>
+    <li><a href="#signing-in">Signing in</a></li>
+    <li><a href="#media-analysis-view">Media Analysis View</a></li>
+    <li><a href="#left-hand-side">Left-hand side</a></li>
+    <li><a href="#centrefold">Centrefold</a></li>
+    <li><a href="#right-hand-side">Right-hand side</a></li>
+  </ul>
+
+  <hr>
+
+  <h3 id="what-is-cogent">What Is Cogent?</h3>
+
+  <p>
+    Cogent is the platform we use to analyse the media conversation
+    (i.e. to observe and note how the client is being represented in
+    the media discussion) and to monitor the media conversation
+    (i.e. to constantly keep track of the ever-changing landscape and
+    to summarise the articles that mention the client or any topics
+    of interest).
+  </p>
+
+  <p>
+    Cogent hosts and facilitates all analysis and monitoring projects.
+    Each client that has chosen Commetric as their service provider
+    has one or several dedicated projects within the Cogent environment.
+  </p>
+
+  <hr>
+
+  <h3 id="signing-in">Signing In</h3>
+  <p>Refer to the video tutorial above for guidance on getting started with Cogent.</p>
+
+  <h3 id="media-analysis-view">Media Analysis View</h3>
+  <p>Use the tutorial above to familiarise yourself with the Media Analysis View.</p>
+
+  <h3 id="left-hand-side">Left-hand Side</h3>
+  <p>See the tutorial for an overview of the left-hand side of the Cogent interface.</p>
+
+  <h3 id="centrefold">Centrefold</h3>
+  <p>See the tutorial for an overview of the centrefold section of the Cogent interface.</p>
+
+  <h3 id="right-hand-side">Right-hand Side</h3>
+  <p>See the tutorial for an overview of the right-hand side of the Cogent interface.</p>
+
+  <hr>
+
+  <div class="guide-callout">
+    <strong>Need a refresher?</strong>
+    <p>
+      Download the PowerPoint and Word files and have a look through
+      them whenever you need a refresher on the Cogent basics.
+    </p>
+  </div>
+
+</div>
+          <a class="resource" href="#" data-resource="Cogent Basics PPT" data-kind="ppt"><span class="file-icon" style="background:#d87535">PPT</span><span class="resource-title">Cogent Basics PPT</span><span class="open-label">Open ↗</span></a>
+          <a class="resource" href="#" data-resource="Cogent Basics WORD" data-kind="doc"><span class="file-icon doc">DOC</span><span class="resource-title">Cogent Basics WORD</span><span class="open-label">Open ↗</span></a>
+        </div>
+      </details>
+      <details class="section">
+        <summary><span class="chev">›</span><span>Signal basics</span><span class="count">0 resources</span></summary>
+
+<div style="margin: 24px 0; max-width: 800px;">
+  <iframe
+    width="100%"
+    height="450"
+    src="https://www.youtube.com/embed/zBNqE8h8HRU?start=1"
+    title="Cogent Basics Tutorial"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<p>
+  <a href="https://www.youtube.com/embed/zBNqE8h8HRU?start=1"
+     target="_blank" rel="noopener noreferrer">
+    Watch Signal Basics directly on YouTube ↗
+  </a>
+</p>
+
+      </details>
+      <details class="section">
+        <summary><span class="chev">›</span><span>Signal AI Qurate</span><span class="count">0 resources</span></summary>
+        
+<div style="margin: 24px 0; max-width: 800px;">
+  <iframe
+    width="100%"
+    height="450"
+    src="https://www.youtube.com/watch?v=FL91GFK_1_w"
+    title="Signal AI Qurate"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<p>
+  <a href="https://www.youtube.com/watch?v=FL91GFK_1_w"
+     target="_blank" rel="noopener noreferrer">
+    Watch Signal AIQurate directly on YouTube ↗
+  </a>
+</p>
+
+      </details>
+      <details class="section" open>
+        <summary><span class="chev">›</span><span>Guide to Media Monitoring</span><span class="count">2 resources</span></summary>
+<div class="course-content">
+
+  <h2>Get to know how we do media monitoring at Commetric with Ralitsa Lazarova and Emilia Klayn!</h2>
+<div style="margin: 24px 0; max-width: 800px;">
+  <iframe
+    width="100%"
+    height="450"
+    src="https://www.youtube.com/watch?v=A8qH-brOxl4&t=1s"
+    title="Guide to Media Monitoring"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<p>
+  <a href="https://www.youtube.com/watch?v=A8qH-brOxl4&t=1s"
+     target="_blank" rel="noopener noreferrer">
+    Watch Guide to Media Monitoring directly on YouTube ↗
+  </a>
+</p>
+
+  
+
+  <h3>Table of Contents</h3>
+
+  <ul>
+    <li>What is Media Monitoring?</li>
+    <li>Using Cogent for media monitoring</li>
+    <li>Writing summaries and snippets</li>
+    <li>Finalizing and sending newsletters</li>
+  </ul>
+
+  <h3>What is Media Monitoring?</h3>
+
+  <p>
+    <strong>Media monitoring</strong> is the activity of gathering the output
+    of the print, online, and broadcast media. It is based on analyzing a
+    diverse range of media platforms to identify trends that can be used
+    for various reasons such as public relations, marketing, planning
+    communications activities, and tracking the public opinion regarding
+    a product/company/person/event etc.
+  </p>
+
+</div>
+        <div class="resources">
+          <a class="resource" href="./Commetric's%20guide%20to%20Media%20Monitoring.pdfx" data-resource="Commetric's guide to Media Monitoring" data-kind="pdf"><span class="file-icon">PDF</span><span class="resource-title">Commetric's guide to Media Monitoring</span><span class="open-label">Open ↗</span></a>
+          <a class="resource" href="./Introduction%20to%20Media%20Monitoring%20PDF.pdfx" data-resource="Introduction to Media Monitoring PDF" data-kind="pdf"><span class="file-icon">PDF</span><span class="resource-title">Introduction to Media Monitoring PDF</span><span class="open-label">Open ↗</span></a>
+        </div>
+<div class="course-content">
+
+  <h2>Article Upload and Editing Articles</h2>
+
+  <p>
+    Sometimes an article may be missing from the database, or a client may
+    specifically ask us to include an article in the analysis. In such cases,
+    we upload articles manually.
+  </p>
+
+  <ol>
+    <li>
+      Click the drop-down arrow next to <strong>Articles</strong> at the
+      top-right corner of the main page in Cogent.
+    </li>
+<img
+  src="1 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+    <li>
+      Click <strong>Create new</strong>.
+    </li>
+    <li>
+      Fill in the fields with the metadata of the article you need to upload.
+      Be careful with the date field: it is automatically set to the current
+      date when you upload the article. Change it to the article's publication
+      date. The time is not always available, so it is not necessary to update it.
+    </li>
+<img
+  src="3 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+    <li>
+      Click <strong>Create</strong> if this is the only article you need to
+      upload, or <strong>Create and go to next</strong> if you have other
+      articles to upload.
+    </li>
+  </ol>
+
+  <hr>
+
+  <h2>Duplicates vs. Reprints</h2>
+
+  <p>
+    During your induction, you will often hear the phrases
+    "everything is project specific" or "it depends on the project".
+    However, this is one of the few (almost) universal things across projects.
+    It is important to understand the difference between duplicates and reprints
+    because this often determines whether an article is relevant.
+  </p>
+
+  <h3>Duplicates</h3>
+
+  <p>
+    Duplicates are identical articles published by the same publication on the
+    same day or on two consecutive days. They usually also have the same URL.
+  </p>
+
+  <p>
+    Whenever we come across duplicates, we process only one article and mark
+    the rest as irrelevant. We process the article with the most recent
+    publication date and time, or the one that is the most extensive.
+  </p>
+
+  <p>
+    If the article we process does not have a URL while the others do, make
+    sure to add the link by editing the article.
+  </p>
+
+  <p>
+    One project-specific case is when the same article is published online
+    and in print. In some cases, we consider them duplicates; in others,
+    both are relevant. Consult your PM on how to proceed in such cases.
+  </p>
+<img
+  src="4 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+  <h3>Why Do We Have Duplicates?</h3>
+
+  <p>
+    Publications aim to publish an article as soon as news breaks, trying to
+    be fast, informative, and ahead of other outlets. However, the initial
+    information is not always complete. As the news develops throughout the
+    day, people or companies comment on it and more information is revealed.
+  </p>
+
+  <p>
+    Therefore, publications often update their articles numerous times
+    throughout the day and may even change the article's title. In Cogent,
+    these updates appear as separate articles. News wires are a common example
+    of this, including Reuters, AP, AWP, and DPA.
+  </p>
+
+  <h3>Examples</h3>
+
+  <p>
+    This is an example of the same article appearing in Cogent with the same
+    title. We always process the latest published version because it is
+    usually the longest and most recently updated.
+  </p>
+
+  <img
+  src="5 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+
+  <h3>Reprints</h3>
+
+  <p>
+    Reprints are identical articles published in two or more different outlets.
+    They are usually relevant and should all be processed, unless your PM
+    advises otherwise based on the client's needs.
+  </p>
+
+  <h3>Why Are Reprints Relevant?</h3>
+
+  <p>
+    Each publication has a different readership and reaches a different
+    audience. For the purposes of the analysis, it is important to consider
+    how many readers an article has reached and how it has influenced their
+    opinion of the client or the topic of interest.
+  </p>
+
+  <h3>Examples</h3>
+
+  <p>
+    News wires are often reprinted by other media because they are usually
+    the primary source of information. In the example below, Daily Mail,
+    Yahoo, and Swissquote have all published an article that originally
+    appeared in Reuters. The pieces are all relevant because they reach
+    different audiences.
+  </p>
+
+  <img
+  src="6 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+
+  <hr>
+
+  <h2>ABS Search</h2>
+
+  <p>
+    ABS in Cogent is a type of Boolean search where you can use special words
+    or symbols to limit, widen, or define your search. This is possible through
+    Boolean operators such as <strong>AND</strong>, <strong>OR</strong>,
+    and <strong>NOT</strong>.
+  </p>
+<img
+  src="7 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+  <p>
+    Cogent provides additional operators that allow you to further refine
+    and filter the articles you are interested in. By hovering over the
+    search field, you can view a full list of these operators.
+  </p>
+
+  <img
+  src="8 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+
+  <h3>When Might You Use ABS Search in Media Monitoring?</h3>
+
+  <ul>
+    <li>
+      When you have a lot of syndicated coverage that you need to add as
+      "also in".
+    </li>
+<img
+  src="9 ma.png"
+    alt="Media analysis screenshot"
+  style="display: block; max-width: auto; height: auto; margin-left: 0; margin-right: auto; border-radius: 8px;"
+
+>
+    <li>
+      To identify stories with different headlines covering the same topic.
+      You can use shared keywords to capture varied coverage of a single
+      event or issue.
+      <p><strong>Example:</strong> <code>"summit 2025" AND Dubai</code></p>
+    </li>
+    <li>
+      To find articles that include quotations or commentary.
+      <p><strong>Example:</strong> <code>"said" OR "commented" OR "highlighted"</code></p>
+    </li>
+  </ul>
+
+</div>
+      </details>
+      <details class="section">
+        <summary><span class="chev">›</span><span>The ultimate guide for snippetting and summarizing for a newsletter</span><span class="count">0 resources</span></summary>
+        <div class="course-content">
+
+  <h2>The ultimate guide for snippetting and summarizing for a newsletter</h2>
+
+  <h3>What is media monitoring and curating a newsletter?</h3>
+
+  <p>Media monitoring is the activity of monitoring the output of the print, online and broadcast media. It is based on analyzing a diverse range of media platforms in order to identify trends that can be used for a variety of reasons such as marketing, planning and tracking the public opinion of the product/company in order to be able to react if a critical crisis emerges. As a result of the monitored coverage, <strong>we curate a newsletter on a daily, weekly, biweekly or monthly basis</strong>, depending on the preference of the client. The newsletter aims to give a full perception with examples and insights into the coverage of our client, noting any drastic changes, emerging trends, important articles or coverage of competitors. The newsletter should usually be sent at the same time every day, week, bi-week, or month, as agreed with the client and we should prioritize punctuality.</p>
+
+  <p>Newsletters can vary in focus. For example, some clients may be interested only in coverage related to themselves, and others may prefer a broader overview of the industry with more insight into their competitors’ or customers’ landscape. Regardless of the focus, there are usually highlighted keywords in the article in Cogent or in the snippet in Signal, which help guide us toward the topic of interest or where the client is mentioned.</p>
+
+  <h3>Cut off time</h3>
+
+  <p>In some projects, when we monitor media coverage we aim to include all articles before sending, however, this is not always possible because articles appear all the time. If we see new coverage a few minutes before sending, we cannot process them as fast and still be on time. This is why we work with a cut-off time, as discussed with the client. What this means if the newsletter is sent out at 10:30 am, the cut-off point may be 10:00 am, so we should include all articles published up to 10:00 am. If there are new articles at 10:15 am, in that case, we are not required to include them on the same day, unless the client explicitly says so and is informed that this may lead to a slight delay in the delivery. Of course, there are exceptions, determined by the specifics and importance of the coverage, so when in doubt, the person to contact is the PM. On the following day, we will include snippets for all articles that have been uploaded into Cogent after 10:00 am on the previous day.</p>
+
+  <h3>Relevancy</h3>
+
+  <p>When setting up a search for a project, MCs and PMs usually use a set of keywords and criteria based on publication, language, and country of the articles. Usually, they are very precise, however, due to language specifics and noise in publications such as hyperlinks and ads, which lead to falsely relevant articles, analysts should always start with checking the coverage for relevancy. Criteria are project-specific, usually, clients want to monitor key markets and publications for mentions of their company, their competitors or a topic, for research purposes. Any coverage outside the given guidelines is irrelevant and should not be included in the newsletter. (e.g. If our client is Lime, the company for e-scooters, but there is an article on lime, the fruit, it is irrelevant.)</p>
+
+  <h3>Summaries vs Snippets</h3>
+
+  <p>Once we check the coverage for relevancy, we start with putting together the newsletter, following a given template and always making sure that the date is correct. <strong>When adding an article to the newsletter, we include the title, date, publication and hyperlink, if available.</strong> Author and country are added according to the client’s preference. An example of what the article is about is commonly included under the title and there are three ways of doing that – adding a snippet, a summary, or the whole article body. <strong>Snippets</strong> are an exact copy of the key message in the article – usually, a few sentences, mentioning the client, competitor, or the monitored topic, which is the focus of the article. <strong>Summaries</strong> provide a concise overview of the text's main points in our own words, focusing on the client and how they are mentioned. Additionally, some clients prefer to have the entire article included in the curated newsletter.</p>
+
+  <h3>Tips for choosing a snippet from an article</h3>
+
+  <ul>
+    <li>Focus on the mention of the client or topic of interest.</li>
+    <li>If there is a spokesperson or commentator quoted, include it in the snippet, as this usually adds value to the client and gives them a better idea of the article.</li>
+    <li>If there are articles with similar text, make sure to choose a different example for each of the snippets to avoid repetition.</li>
+    <li>If you are translating from another language to English, feel free to rephrase any sentences, which lost meaning in translation. If Google Translate is not accurate for the language you are translating from, try DeepL Translate.</li>
+  </ul>
+
+  <h3>Tips when summarizing one or a few articles</h3>
+
+  <ul>
+    <li>Summaries would normally be kept brief, with the length dictated first and foremost by the client’s requirements, the guidelines proved by the PM, our judgment on how significant the news item is and/or the presence of a stakeholder quote. Do not waste time providing too much detail on small mentions of a topic.</li>
+    <li>Most curated alerts employ forced present/present perfect tense. If the case at hand is different, we modify it accordingly.</li>
+    <li>There are two basic constructs we use when summarizing, depending on the client’s needs:
+      <ul>
+        <li><strong>(1)</strong> X has [verb] / X is set to / X plans to / An interview with / X talks about. <em>(e.g. Tesla is set to put sales growth ahead of profit, according to Elon Musk)</em> This is best suited for accounts where we are asked to be as concise and to the point as possible.</li>
+        <li><strong>(2)</strong> Reports / Informs / Announces / Notes that X has revealed/confirmed/announced Y. <em>(e.g. Reports that Tesla is set to put sales growth ahead of profit)</em></li>
+      </ul>
+    </li>
+    <li>With alerts covering 8-24 hour periods, you will often run into news stories that are being reported over the period of several days or even weeks. If there have been no new developments, common phrases to use would be:
+      <ul>
+        <li>Continued coverage of / Further reporting on X / Continued coverage reporting that/on.</li>
+      </ul>
+      If a longer time has passed since a story was last reported on and there have been no new developments:
+      <ul>
+        <li>Re-emerging coverage on/discussing/</li>
+      </ul>
+    </li>
+    <li>Avoid run-on sentences. When breaking a long sentence in two, if unsure, you could lead the second with: It is (also) noted that / The article also notes / This follows / X has also.</li>
+    <li>You can also use these examples: [Someone(s)] has(have) done something / An article highlighting/showcasing / Discusses the…, as well as / Raises concerns / questions about / Provides detailed information about / Focuses on / Offers [type of] advice on / X is said to be doing Y.</li>
+  </ul>
+
+  <h4>Opinion / commentary / analysis</h4>
+
+  <ul>
+    <li>Introduce the article, highlighting it is not your ordinary news item: An opinion article / A commentary piece on / An analytical piece / An in-depth analysis of.</li>
+    <li>If the author is not a journalist but an external expert or public figure (often listed at the bottom or start of the article, with full title/role), then include it: A commentary piece by X, in which he/she ...</li>
+    <li>Find the appropriate verb(s): explores / discusses the impact/effectiveness of / arguing that / promoting the idea of / defending X’s choice / highlighting the effectiveness of / criticising the / stating a case for. <em>(e.g. A commentary piece by X in which he discusses … and argues that…)</em></li>
+  </ul>
+
+  <h4>Interview / Profile piece</h4>
+
+  <ul>
+    <li>An interview with X, in which he/she discusses / An interview with X discussing the topic(s)/issue(s) of.</li>
+    <li>A profile piece on X, highlighting/discussing their work/achievements in/ their plan for.</li>
+  </ul>
+
+  <h4>A stakeholder is mentioned in the article</h4>
+
+  <ul>
+    <li>When the person is the reason for the article, you can lead with it: X has revealed / stated / announced / accused / confirmed / raised concerns regarding/about / said / admonished / criticised / acknowledged / expressed the opinion that; X comments on …</li>
+    <li>In the case of a letter/address/TV appearance etc., you can provide details: In his testimony in front of the Y Committee, X has... / In a letter to Y / In a letter protesting the Z, X has… / Speaking as part of a (TV) appearance on the Y programme, X has said that… / Commenting on the issue of Y, X has stated that…</li>
+    <li>When listed as taking part in a conference/summit etc., you could say: Lists X as one of the speakers at Y / as one of the experts delivering a keynote address / Mentions X as one of the keynote speakers at the / as taking part in … a panel discussion on …</li>
+    <li>When the stakeholder is mentioned as a commentator or as expressing expertise on the topic/news that is the focus of an article, it is never a mistake to blandly write: The article quotes X as saying: “[full quote]” / Commenting on Y, X has stated that “(cherry picked quote)” / X is quoted as commenting on the Y Topic At Hand, saying: “...”</li>
+  </ul>
+
+  <h4>Small mentions of something the client cares about</h4>
+
+  <ul>
+    <li>Briefly mentions W among (others) who have done (something).</li>
+    <li>(Briefly) mentions that W, including/alongside Z and Y, has done (something), etc.</li>
+    <li>A brief/passing mention of W with regard to / regarding / as doing (something) / in the context of…</li>
+  </ul>
+
+  <h3>Newsletter summary</h3>
+
+  <p>Some clients who receive a newsletter, covering a larger volume of articles, may require a summary of the whole newsletter. The clients usually provide instructions with their preferences, what to focus on, and what we should include in the summary. Therefore, there is no strict form of summarizing, but there are some key rules that are valid for all: The text should answer questions, not raise them.</p>
+
+  <ul>
+    <li>Figures and percentages should never start a sentence; write the number in words instead.</li>
+    <li>The text usually focuses on the leading stories – most reported on or most important for the client.</li>
+    <li>When writing highlights it is always a good idea to start with the news on the client.</li>
+    <li>In most cases, clients are not interested in news regarding stock movements, but check with the PM to be sure.</li>
+    <li>When mentioning a publication, make sure to format the name in italics.</li>
+    <li>Prominent spokes & commentators may have to be highlighted in the text.</li>
+    <li>When using numbers in general text, such as: “The three most prolific journalists were all Swedish,” spell out one through ten (inclusive) and use figures for all other numbers. This rule also applies to using numbers in connection with media messages, spokespeople, publications, themes and time periods (five-year contract, six-month contract BUT 15-year love affair). As an exception, we will always use numbers when referring to articles, percentages, percentage points in the text.</li>
+  </ul>
+
+  <h3>Mistakes to avoid</h3>
+
+  <ul>
+    <li><strong>Financial Times articles cannot be copied, published or redistributed in full text</strong>, the same applies for photographs, graphics, tables or images in any way (except as permitted by any sharing tools we make available). When adding a snippet from FT you can ONLY COPY FROM ARTICLE BODY IN COGENT and never from the article online. If you are working in Signal, rewrite manually as little as possible. In both cases, keep the snippet brief – the allowed limit is up to 140 characters.</li>
+    <li><strong>The Wall Street Journal has a stricter copyright policy – you cannot copy anything, regardless if it is from Cogent or the webpage.</strong> The title and snippet should be rephrased. Direct phrases cannot be included in the newsletter unless it is a quote by a spokesperson in which case you can type it yourself in the summary.</li>
+    <li>When you translate spokespeople and commentators’ roles from another language to English, always check in Google if the title is correct. Usually, LinkedIn or the company’s website are the most trustworthy sources.</li>
+    <li>The same applies to any organization, company, NGO etc. whose name is in a foreign language.</li>
+    <li>If the article reports on a story you reported a few days, or weeks ago, always open the link and check the date. Sometimes old articles appear in Cogent as new.</li>
+    <li>Make sure you are well aware of the required formatting, spelling and punctuation requirements of the project as these vary. For example, use US spelling for US clients and UK spelling for clients from different parts of the world.</li>
+    <li>Use US or U.S. instead of USA unless USA is part of an official name e.g. the publication <em>USA Today.</em></li>
+    <li>When writing out an entire number, use commas as the placeholder (e.g. 1,430 or 143,053). When talking about portions of millions and billions, use a period (e.g. 1.35m or 1.4 billion).</li>
+    <li>Use the official spelling for companies, product names and publications (check company websites for copyright names and Factiva for publications). Make sure that you include the article “The”, if it is part of the copyright name e.g. <em>The Wall Street Journal.</em></li>
+    <li>When using abbreviations for company names use the accepted abbreviation (e.g. IBM or SAS). Do not invent abbreviations since this may confuse the audience. Place them in parenthesis after the first full reference to the name.</li>
+    <li>Always double-check if your work is consistent in terms of the length of the summaries, bold or italics fonts, formatting, spelling, and punctuation.</li>
+  </ul>
+
+</div>
+      </details>
+            <details class="section">
+        <summary><span class="chev">›</span><span>Favorability guidelines</span><span class="count">0 resources</span></summary>
+        <div class="course-content">
+
+  <h2>Assessing the Overall Tone of Articles</h2>
+
+  <p><strong>When assessing the overall tone of articles toward a client (or its competitors), the analysts consider the following main variables:</strong></p>
+
+  <ul>
+    <li>The author’s tone, perspective and commentary with regard to the company/client-related news.</li>
+    <li>The content of the client-related news/factual information within articles.</li>
+  </ul>
+
+  <h3>Additional factors to consider</h3>
+
+  <p><strong>In addition, the analysts should also have in mind:</strong></p>
+
+  <ul>
+    <li><strong>Content</strong> – Is the report conveying fact, i.e. HP’s sales grew 14%, or speculation, i.e. some commentators argued that HP may be facing a significant fall in profit when it reveals its results on Monday?</li>
+
+    <li>Does the article refer to industry trends or topics or specifically to the client?</li>
+
+    <li><strong>Use of language</strong> – Evaluating implicit sentiments contained within media coverage is highly subjective; therefore, we factor for subtleties of language (i.e. sarcasm), visual conveyances, messaging and conscious wording. For example, negative facts in coverage may be presented by the author in a neutral or even positive tone by using balancing phrasing or counter arguments.
+
+      <p>Same story, different headline:</p>
+
+      <ul>
+        <li><em>Hewlett-Packard Working to Weather Tech Slowdown; Analysts Expect Strength in Printing Supplies, Services to Offset PC Slump</em> (Neutral)</li>
+        <li><em>HP’s Q1 results indicate that the company experiences difficulties in key areas</em> (Negative)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="guide-callout">
+    <p>Making sense of these nuances is impossible to achieve through automated analysis processes.</p>
+  </div>
+
+  <ul>
+    <li><strong>Content organisation</strong> – Are the most negative comments in the headline or towards the end of a piece? Where does a client spokesperson feature within a feature compared to the competitor’s?</li>
+
+    <li><strong>PR Message penetration</strong> – Does the article or spokespeople within the piece successfully communicate priorities/messages?</li>
+
+    <li><strong>Spokesperson visibility</strong> – Are company spokespeople quoted or mentioned in the piece? How prominent are their views compared to competitor spokespeople? Obviously, stronger spokesperson visibility often correlates to more successful communication of messages.</li>
+  </ul>
+
+  <h3>Positive sentiment</h3>
+
+  <p>An article is positive if it discusses the company or its products favourably, does not feature skepticism or criticism, or if it factually covers a story which is generally considered positive.</p>
+
+  <p><strong>Example:</strong></p>
+
+  <p><a href="http://www.telegraph.co.uk/science/2017/08/27/new-wonder-drug-hailed-biggest-breakthrough-fight-against-heart/" target="_blank" rel="noopener noreferrer">The Telegraph – New wonder drug hailed as biggest breakthrough in the fight against heart disease</a></p>
+
+  <h3>Balanced sentiment</h3>
+
+  <p>An article is balanced if it features both positive and negative views on the company, i.e. is more balanced. Articles expressing skepticism can also be coded as neutral as they may not be explicitly negative in tone. A more negative claim can also be balanced out by featuring spokespeople statements discussing the issue.</p>
+
+  <p><strong>Example:</strong></p>
+
+  <p><a href="https://www.reuters.com/article/novartis-heart-drug/novartis-shares-slip-after-mixed-heart-drug-data-idUSL8N1LE0YH" target="_blank" rel="noopener noreferrer">Reuters – Novartis shares slip after mixed heart drug data</a></p>
+
+  <h3>Neutral sentiment</h3>
+
+  <p>Another example of a neutral article would be one that is very factual in tone or mentions the company or its products very briefly.</p>
+
+  <p><strong>Example:</strong></p>
+
+  <p><a href="https://www.reuters.com/article/virgin-mobile-vodafone/britains-virgin-media-switches-to-vodafones-mobile-network-idUSL8N27M2V1?feedType=RSS&feedName=companyNews" target="_blank" rel="noopener noreferrer">Reuters – Britain's Virgin Media switches to Vodafone's mobile network</a> (EE/O2)</p>
+
+  <h3>Negative sentiment</h3>
+
+  <p>An article is negative if it speaks about a company or its products in a negative tone or expresses criticism towards them, or their services or products. An article may also be coded negative if it is neutral in tone but focuses on criticism or negative news related to the companies.</p>
+
+  <p><strong>Example:</strong></p>
+
+  <p><a href="http://www.reuters.com/article/us-novartis-greece-corruption/greek-prosecutor-raids-novartis-athens-offices-in-bribery-probe-idUSKBN14O156?il=0" target="_blank" rel="noopener noreferrer">Reuters – Greek prosecutor raids Novartis Athens offices in bribery probe</a></p>
+
+  <h3>Further examples: Posting of financial results</h3>
+
+  <h4>1. Positive sentiment</h4>
+
+  <p><strong>Positive sentiment</strong> is assigned to articles on financial results when:</p>
+
+  <ul>
+    <li>Articles feature no negative statements toward the company.</li>
+    <li>The journalist’s attitude is exclusively positive.</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+
+  <p><a href="https://www.techradar.com/uk/news/o2-revenues-rise-ahead-of-5g-driverless-car-trials" target="_blank" rel="noopener noreferrer">TechRadar – O2 revenues rise ahead of 5G driverless car trials</a></p>
+
+  <h4>2. Balanced sentiment</h4>
+
+  <p><strong>Balanced sentiment</strong> is assigned to articles on financial results when one or more of the following applies:</p>
+
+  <ul>
+    <li>
+      Results are said to align with analysts’ expectations.
+
+      <blockquote>
+        “HP, the world’s top seller of personal computers, also cut its 2009 guidance, but it was still in line with Wall Street's expectations.”
+        <p><em>Associated Press</em></p>
+      </blockquote>
+    </li>
+
+    <li>
+      There is a company representative commenting on the financial results.
+
+      <blockquote>
+        “Mark Hurd remained confident about H-P's opportunities despite the quarter's results. […] ‘Our cost structure [is] reduced. It's more variable, more performance oriented, and we have more opportunities ahead of us,’ Hurd said. ‘We now have more flexibility to be more competitive.’”
+        <p><em>MarketWatch</em></p>
+      </blockquote>
+    </li>
+
+    <li>
+      The journalist makes positive comments, despite falling revenues and/or profits.
+
+      <blockquote>
+        “In H-P’s second quarter, where revenue fell 3%, the company reported its biggest and most profitable business is now services. Now, with EDS under its wing, H-P’s services unit revenue was $8.5 billion, surpassing PCs in revenue, and the imaging and printing business in profits.”
+        <p><em>MarketWatch</em></p>
+      </blockquote>
+    </li>
+
+    <li>
+      The article suggests that despite falling revenues and/or profits, the company has performed better than its competitors.
+
+      <blockquote>
+        “Yet H-P and Dell's financial results are likely to diverge. So far, H-P, the world's largest PC maker, has weathered the shrinking market better than No. 2 Dell.”
+        <p><em>The Wall Street Journal</em></p>
+      </blockquote>
+    </li>
+  </ul>
+
+  <h4>3. Negative sentiment</h4>
+
+  <p><strong>Negative sentiment</strong> is assigned to articles on financial results when:</p>
+
+  <ul>
+    <li>
+      Results are portrayed as worse than predicted by analysts or the company itself; and/or there is no company representative present to mitigate the outcome of the results; and/or the journalist is generally more negative in their reporting tone.
+
+      <blockquote>
+        “But H-P’s latest results show how it, like other onetime tech holdouts, is now succumbing to the weak global economy, which has prompted companies to cut budgets and delay technology purchases.”
+        <p><em>The Wall Street Journal</em></p>
+      </blockquote>
+    </li>
+
+    <li>
+      Financial analysts comment negatively on HP’s performance.
+
+      <blockquote>
+        “Yet Seyrafi rates HP as underperform, citing its broad exposure to the global recession. ‘There’s no question that HP is facing an extremely difficult hardware market,’ Seyrafi said. ‘Unfortunately, HP is too big to hide from this macro environment.’”
+        <p><em>Investor’s Business Daily</em></p>
+      </blockquote>
+    </li>
+  </ul>
+
+</div>
+      </details>
+    </div>
+    <div class="footer">Commetric Learning · Freelancer Training</div>
+  </main>
+</div>
+<script>
+const search = document.getElementById('courseSearch');
+const sections = [...document.querySelectorAll('.section')];
+const expandBtn = document.getElementById('expandBtn');
+function updateExpandLabel(){expandBtn.textContent=sections.every(s=>s.open)?'Collapse all':'Expand all'}
+expandBtn.addEventListener('click',()=>{const open = !sections.every(s=>s.open);sections.forEach(s=>s.open=open);updateExpandLabel()});
+sections.forEach(s=>s.addEventListener('toggle',updateExpandLabel));
+search.addEventListener('input',()=>{
+ const q=search.value.trim().toLowerCase();
+ sections.forEach(section=>{
+   let match=false;
+   const title=section.querySelector('summary').innerText.toLowerCase();
+   const resources=[...section.querySelectorAll('.resource')];
+   resources.forEach(r=>{const ok=!q||r.innerText.toLowerCase().includes(q)||title.includes(q);r.style.display=ok?'flex':'none';if(ok)match=true});
+   const empty=section.querySelector('.empty');if(empty)empty.style.display=(!q||title.includes(q))?'block':'none';
+   if(title.includes(q)&&q) {resources.forEach(r=>r.style.display='flex');match=true}
+   section.style.display=(!q||match||title.includes(q))?'block':'none';
+   if(q&&match)section.open=true;
+ });
+});
+function showNotice(message){const n=document.getElementById('notice');n.textContent=message;n.classList.add('show')}
+document.querySelectorAll('.resource').forEach(a=>a.addEventListener('click',e=>{
+ e.preventDefault();
+ const name=a.dataset.resource;
+ showNotice('“'+name+'” is ready to be linked to its file. Add the resource URL or upload the document to make it open here.');
+}));
+</script>
+</body>
+</html>
