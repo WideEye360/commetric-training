@@ -78,7 +78,7 @@ main{max-width:1150px;width:100%;padding:34px clamp(20px,4vw,52px);margin:0 auto
       <button class="btn" id="expandBtn" type="button">Expand all</button>
     </div>
     <div class="course-list" id="courseList">
-           <details class="section" open>
+           <details class="section">
         <summary><span class="chev">›</span><span>Freelancers at Commetric</span><span class="count">2 resources</span></summary>
 <div class="course-content">
 
@@ -285,7 +285,7 @@ main{max-width:1150px;width:100%;padding:34px clamp(20px,4vw,52px);margin:0 auto
 
         <div class="resources"><div class="empty">Resources will appear here when added.</div></div>
       </details>
-      <details class="section" open>
+      <details class="section">
         <summary><span class="chev">›</span><span>Cogent basics</span><span class="count">2 resources</span></summary>
         <div class="resources">
 <div class="course-content">
@@ -423,7 +423,7 @@ main{max-width:1150px;width:100%;padding:34px clamp(20px,4vw,52px);margin:0 auto
 </p>
 
       </details>
-      <details class="section" open>
+      <details class="section">
         <summary><span class="chev">›</span><span>Guide to Media Monitoring</span><span class="count">2 resources</span></summary>
 <div class="course-content">
 
@@ -987,11 +987,7 @@ search.addEventListener('input',()=>{
  });
 });
 function showNotice(message){const n=document.getElementById('notice');n.textContent=message;n.classList.add('show')}
-document.querySelectorAll('.resource').forEach(a=>a.addEventListener('click',e=>{
- e.preventDefault();
- const name=a.dataset.resource;
- showNotice('“'+name+'” is ready to be linked to its file. Add the resource URL or upload the document to make it open here.');
-}));
+
 </script>
 </body>
 </html>
